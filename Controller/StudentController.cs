@@ -20,6 +20,22 @@ namespace School.Controller
             _studentRepository = studentRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllStudents()
+        {
+            var students = await _studentRepository.GetAllStudents();
+            return Ok(students);
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetStudentDetaile(int id)
+        {
+            var student = await _studentRepository.GetStudentDetaile(id);
+            if (student == null)
+            {
+                return NotFound("this student Not Found");
+            }
+            return Ok(student);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateStudent([FromBody] CreateStudentDto model)
         {

@@ -9,5 +9,7 @@ namespace School.Repository
     public interface IStudentRepository
     {
         Task CreateStudent(CreateStudentDto studentDto);
+        Task<List<GetDetailesStudentDto>> GetAllStudents();
+        Task<GetDetailesStudentDto> GetStudentDetaile(int id);
     }
 }
