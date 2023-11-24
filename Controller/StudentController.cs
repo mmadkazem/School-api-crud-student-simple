@@ -46,5 +46,17 @@ namespace School.Controller
             await _studentRepository.CreateStudent(model);
             return Ok("this is student created!!!");
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateStudent(int id, UpdateStudentDto model)
+        {
+            var result = await _studentRepository.UpdateStudent(id, model);
+            if (result == false)
+            {
+                return BadRequest("This is student Not Found!!!");
+            }
+            return Ok("This");
+            
+        }
     }
 }

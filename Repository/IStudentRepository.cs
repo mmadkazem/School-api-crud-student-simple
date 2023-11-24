@@ -11,5 +11,6 @@ namespace School.Repository
         Task CreateStudent(CreateStudentDto studentDto);
         Task<List<GetDetailesStudentDto>> GetAllStudents();
         Task<GetDetailesStudentDto> GetStudentDetaile(int id);
+        Task<bool> UpdateStudent(int id, UpdateStudentDto model);
     }
 }
