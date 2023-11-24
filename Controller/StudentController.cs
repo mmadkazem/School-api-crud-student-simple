@@ -55,8 +55,20 @@ namespace School.Controller
             {
                 return BadRequest("This is student Not Found!!!");
             }
-            return Ok("This");
-            
+            return Ok("This is student Update!!!");
+
+        }
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> UpdateStudent(int id)
+        {
+            var result = await _studentRepository.RemoveStudent(id);
+            if (result == false)
+            {
+                return BadRequest("This is student Not Found!!!");
+            }
+            return Ok("This is student Remove!!!");
+
         }
     }
 }
